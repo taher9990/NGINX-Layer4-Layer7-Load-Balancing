@@ -1,0 +1,15 @@
+   upstream DB-TCP-L4-VIP {
+       hash $remote_addr consistent;
+       server PRD-CRDB-CLR1-SRV1.EXAMPLE.COM:26257 weight=10;
+       server PRD-CRDB-CLR1-SRV2.EXAMPLE.COM:26257;
+       server PRD-CRDB-CLR1-SRV3.EXAMPLE.COM:26257;
+       server PRD-CRDB-CLR1-SRV4.EXAMPLE.COM:26257;
+       server PRD-CRDB-CLR1-SRV5.EXAMPLE.COM:26257;
+    }
+   server {
+        listen 26257;
+        proxy_pass 10.10.100.10:26257;
+        proxy_bind 10.10.100.10;
+        access_log /var/log/nginx/access.log basic;
+        error_log /var/log/nginx/error.log debug;
+    }
