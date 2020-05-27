@@ -5,7 +5,8 @@ but there are other defaul folders we did not mention them below
 ├── conf.d<br />
 │   ├── mail-service-VIP.mail<br />
 │   ├── http-service-VIP.http<br />
-│   └── DB-TCP-L4-VIP.stream<br />
+│   ├── http-service-VIP.http<br />
+│   └── WEB-TCP-L4-VIP.stream<br />
 ├── nginx.conf<br />
 ├── sites-available<br />
 │   ├── default<br />
@@ -13,6 +14,7 @@ but there are other defaul folders we did not mention them below
 │   ├── default -> /etc/nginx/sites-available/default<br />
 │   ├── mail-service-VIP.mail -> /etc/nginx/conf.d/mail-service-VIP.mail<br />
 │   ├── http-service-VIP.http -> /etc/nginx/conf.d/http-service-VIP.http<br />
+│   ├── WEB-TCP-L4-VIP.stream -> /etc/nginx/conf.d/WEB-TCP-L4-VIP.stream<br />
 │   └── DB-TCP-L4-VIP.stream -> /etc/nginx/conf.d/DB-TCP-L4-VIP.stream<br />
 
 
