@@ -2,7 +2,7 @@
 ### Install the latest verion of Nginx on Ubuntu 18.04
 <br />
 <br />
-
+```
 sudo wget https://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
 sudo vi /etc/apt/sources.list
@@ -17,7 +17,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
 
-
+```
 <br />
 <br />
 ### Below is overview on Folder Structure for NGINX for the important folders that we used
