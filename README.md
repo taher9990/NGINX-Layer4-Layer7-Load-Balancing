@@ -6,6 +6,7 @@ but there are other defaul folders we did not mention them below
 │   ├── mail-service-VIP.mail<br />
 │   ├── http-service-VIP.http<br />
 │   └── DB-TCP-L4-VIP.stream<br />
+├── nginx.conf<br />
 ├── sites-available<br />
 │   ├── default<br />
 ├── sites-enabled<br />
