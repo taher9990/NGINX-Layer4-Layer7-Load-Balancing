@@ -96,21 +96,7 @@ upstream backend {
 } 
 ```
 
-### 5# Setting custom port to check against it
- ```   
-   health_check port=8080;
- ```
- ##### Explaination
 
-##### Usage
-```
-    server {  
-        listen               12345;  
-        proxy_pass           stream_backend;  
-        health_check         port=12346;  
-        health_check_timeout 5s;  
-    
-```
 <br /><br /><br />
 ## Note:
 We use stream { 
