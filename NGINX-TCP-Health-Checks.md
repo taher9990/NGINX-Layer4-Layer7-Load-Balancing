@@ -1,6 +1,6 @@
  ### Below are health checks that can be used in side the .stream files
  
- ### 1#
+ ### 1# Health Check Intervals & Attempts settings
  ```interval=10 will check every 10 seconds```
  ##### Explaination
  passes=2 backend servers must pass 2 checks.<br />
@@ -18,7 +18,7 @@ stream {
 }  
 ```
 
- ### 2#
+ ### 2# Customized Timeout
  ```        
    health_check;  
    health_check_timeout 5s;  
@@ -38,7 +38,7 @@ stream {
 }  
 ```
 
-### 3#
+### 3#  Setting the prefered upstream/backend, Setting Max failuers and Setting Max active connections
  ```        
 weight=5;
 max_fails=2 fail_timeout=30s; 
@@ -58,6 +58,27 @@ upstream stream_backend {
 }  
 ```
 
+### 4# Setting Active and Passive, Setting How to recover from failed server gradually
+ ```   
+slow_start=30s;  
+backup; 
+down;
+ ```
+ ##### Explaination
+low_start=30s : An upstream server/backend server can be easily overwhelmed by connections, which may cause the server to be marked as unavailable again. Slow start allows an upstream server to gradually recover its weight from zero to its nominal value after it has been recovered or become available.  <br /><br />
+backup : This marks the server as a backup server. It will be passed requests when the primary servers are unavailable.
+The parameter cannot be used along with the hash, ip_hash, and random load balancing methods. <br /><br />
+down : marks the server as permanently unavailable. 
+##### Usage
+```
+upstream backend {  
+    server backend1.example.com:12345 slow_start=30s;  
+    server backend2.example.com;  
+    server 192.0.0.1 backup;  
+    server 192.0.0.2 down;  
+} 
+```
+<br /><br /><br />
 ## Note:
 We use stream { 
 
