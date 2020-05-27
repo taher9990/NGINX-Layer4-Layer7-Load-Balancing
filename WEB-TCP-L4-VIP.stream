@@ -1,0 +1,16 @@
+   upstream http-service-VIP-8080 {
+       #hash $remote_addr consistent;
+       server PRD-CRDB-SRV1.EXAMPLE.COM:8080;
+       server PRD-CRDB-SRV2.EXAMPLE.COM:8080;
+       server PRD-CRDB-SRV3.EXAMPLE.COM:8080;
+       server PRD-CRDB-SRV4.EXAMPLE.COM:8080;
+       server PRD-CRDB-SRV5.EXAMPLE.COM:8080;
+       server PRD-CRDB-SRV6.EXAMPLE.COM:8080;
+     }
+   server {
+        listen 10.10.100.10:8080;
+        proxy_pass http-service-VIP-8080;
+        proxy_bind 10.10.100.10;
+        access_log /var/log/nginx/access.log basic;
+        error_log /var/log/nginx/error.log debug;
+     }
