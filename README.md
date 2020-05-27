@@ -2,7 +2,7 @@
 ### Install the latest verion of Nginx on Ubuntu 18.04
 <br />
 <br />
-```
+
 sudo wget https://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
 sudo vi /etc/apt/sources.list
@@ -16,13 +16,13 @@ sudo apt-get install nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-```
+
 
 <br />
 <br />
 ### Below is overview on Folder Structure for NGINX for the important folders that we used
 ##### but there are other defaul folders we did not mention them below
-```
+
 <br />/etc/nginx/<br />
 ├── conf.d<br />
 │   ├── mail-service-VIP.mail<br />
@@ -31,7 +31,7 @@ sudo systemctl status nginx
 │   └── DB-TCP-L4-VIP.stream<br />
 ├── nginx.conf<br />
 └──
-```
+
 
  <br />
  <br />
@@ -45,7 +45,7 @@ sudo systemctl status nginx
  <br />
  <br />
 2- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
-```
+
   upstream DNS-Service {
        hash $remote_addr consistent;  # This is going to remeber client IP and send him to same DNS server that we served first
        server DNS-SRV1.EXAMPLE.COM:53;
@@ -62,7 +62,7 @@ sudo systemctl status nginx
         access_log /var/log/nginx/access.log basic;
         error_log /var/log/nginx/error.log debug;
      }
-```
+
   <br />
  3- Now save the file<br />
  4- Test the config <br />
