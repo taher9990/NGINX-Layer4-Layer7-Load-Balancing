@@ -23,8 +23,36 @@ http {
     #... 
 }  
 ```
+### 2# Customize HTTP Status Code Health check 
+ ```   
+  health_check match=server_ok; 
+ ```
+##### Explaination
+health_check match=server_ok : You can set custom conditions that the response must satisfy for the server to pass the health check. The conditions are defined in a match block, which is referenced in the match parameter of the health_check directive.
+##### Usage
+###### In the HTTP Block insert below lines
+```
+http {
+    #...
+    match server_ok {
+        status 200-399;
+        body !~ "maintenance mode";
+    }
+ ```
+###### In /conf.d/*.http file mention the 
+  health_check match=server_ok; 
 
- ### 2# Customized Timeout & Customized Port to do health check on it
+```    
+   server {
+        #...
+        location / {
+            proxy_pass http://backend;
+            health_check match=server_ok;
+        }
+    }
+```
+
+ ### 3# Customized Timeout & Customized Port to do health check on it
  ```   
  health_check;
    health_check port=12346
@@ -66,7 +94,7 @@ http {
 }  
 ```
 
-### 3#  Setting the prefered upstream/backend, Setting Max failuers and Setting Max active connections
+### 4#  Setting the prefered upstream/backend, Setting Max failuers and Setting Max active connections
  ```        
 weight=5;
 max_fails=2 fail_timeout=30s; 
@@ -86,7 +114,7 @@ upstream stream_backend {
 }  
 ```
 
-### 4# Setting Active and Passive, Setting How to recover from failed server gradually
+### 5# Setting Active and Passive, Setting How to recover from failed server gradually
  ```   
 slow_start=30s;  
 backup; 
