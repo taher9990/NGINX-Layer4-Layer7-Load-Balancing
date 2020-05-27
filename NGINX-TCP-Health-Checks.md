@@ -102,4 +102,4 @@ upstream backend {
 We use stream { 
 
 }
-in above examples just to confirm that these health checks used for the stream
+in above examples just to confirm that these health checks used for the stream but the http block is already defind in the nginx.conf file which mean no need to define it again in the /conf.d/*.stream
