@@ -1,5 +1,5 @@
 # NGINX-Layer4-Load-Balancing
-Below is overview on Folder Structure for NGINX for the important folders that we used,
+###Below is overview on Folder Structure for NGINX for the important folders that we used,
 but there are other defaul folders we did not mention them below
 <br />/etc/nginx/<br />
 ├── conf.d<br />
@@ -19,7 +19,7 @@ but there are other defaul folders we did not mention them below
  <br />
  <br />
  <br />
-So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP:<br />
+####So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP:<br />
 1- Create a new file under /etc/nginx/conf.d/<VIP-Name>.stream<br />
   touch /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
 2- Link this new file to the enabled folder<br />
