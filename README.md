@@ -1,6 +1,7 @@
 # NGINX-Layer4-Load-Balancing
 ### Install the latest verion of Nginx on Ubuntu 18.04
-<br /> We used nginx version 19
+<br />
+<br />
 ```
 sudo wget https://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
@@ -64,7 +65,10 @@ sudo systemctl status nginx
  5- Restart NGINX<br />
   sudo systemctl restart nginx 
 
-
+<br />
+<br />
+<br />
+<br />
 
 <br />
 #### Nginx verion used is 
