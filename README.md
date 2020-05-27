@@ -16,7 +16,6 @@ sudo apt-get install nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-
 ```
 <br />
 <br />
