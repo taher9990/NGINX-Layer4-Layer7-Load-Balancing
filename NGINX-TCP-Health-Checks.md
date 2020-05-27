@@ -18,14 +18,19 @@ stream {
 }  
 ```
 
- ### 2# Customized Timeout
- ```        
-   health_check;  
+ ### 2# Customized Timeout & Customized Port to do health check on it
+ ```   
+ health_check;
+   health_check port=12346
    health_check_timeout 5s;  
  ```
- ##### Explaination
-This is the default health check for nginx it will check the upstream/pool every 5 seconds, so to use the default only you can use   health_check;   only if you want to customize it you can use both   health_check;   and   health_check_timeout 5s;   and in below example
- ##### Usage
+##### Explaination
+health_check : Using this only means it will use the default timeout.
+<br /><br />
+health_check_timeout 5s : This is the default health check for nginx it will check the upstream/pool every 5 seconds.
+<br /><br />
+health_check port=12346 : This will check the specific port.
+##### Usage
 ```
 stream {  
     #...  
@@ -34,6 +39,18 @@ stream {
         proxy_pass           stream_backend;  
         health_check         port=12346;  
         health_check_timeout 5s;  
+    }  
+}  
+```
+Or
+```
+stream {  
+    #...  
+    server {  
+        listen        12345;  
+        proxy_pass    stream_backend;  
+        health_check;  
+        #...  
     }  
 }  
 ```
@@ -77,6 +94,22 @@ upstream backend {
     server 192.0.0.1 backup;  
     server 192.0.0.2 down;  
 } 
+```
+
+### 5# Setting custom port to check against it
+ ```   
+   health_check port=8080;
+ ```
+ ##### Explaination
+
+##### Usage
+```
+    server {  
+        listen               12345;  
+        proxy_pass           stream_backend;  
+        health_check         port=12346;  
+        health_check_timeout 5s;  
+    
 ```
 <br /><br /><br />
 ## Note:
