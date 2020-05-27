@@ -17,3 +17,23 @@ stream {
     #...  
 }  
 ```
+
+ ### 2#
+ ```        
+   health_check;  
+   health_check_timeout 5s;  
+ ```
+ ##### Explaination
+This is the default health check for nginx it will check the upstream/pool every 5 seconds 
+ ##### Usage
+```
+stream {  
+    #...  
+    server {  
+        listen               12345;  
+        proxy_pass           stream_backend;  
+        health_check         port=12346;  
+        health_check_timeout 5s;  
+    }  
+}  
+```
