@@ -16,7 +16,7 @@ but there are other defaul folders we did not mention them below
 │   ├── http-service-VIP.http -> /etc/nginx/conf.d/http-service-VIP.http<br />
 │   ├── WEB-TCP-L4-VIP.stream -> /etc/nginx/conf.d/WEB-TCP-L4-VIP.stream<br />
 │   └── DB-TCP-L4-VIP.stream -> /etc/nginx/conf.d/DB-TCP-L4-VIP.stream<br />
-
+ 
 
 
 So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP:
