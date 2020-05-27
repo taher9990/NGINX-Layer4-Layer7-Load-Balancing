@@ -1,3 +1,4 @@
+```
 upstream backend {
  server 192.168.100.10:80 weight=1;
  server 192.168.100.11:80 weight=2;
@@ -23,3 +24,4 @@ server {
 
         }
 }
+```
