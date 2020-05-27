@@ -1,6 +1,5 @@
+ ### h
  health_check interval=10 passes=2 fails=3;  
-```
-  test
 ```
 stream {  
     #...  
@@ -11,4 +10,4 @@ stream {
     }  
     #...  
 }  
-
+```
