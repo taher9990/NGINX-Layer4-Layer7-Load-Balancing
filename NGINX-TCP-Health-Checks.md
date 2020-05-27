@@ -37,3 +37,12 @@ stream {
     }  
 }  
 ```
+
+
+
+
+## Note:
+We use stream { 
+
+}
+in above examples just to confirm that these health checks used for the stream
