@@ -1,16 +1,25 @@
-   upstream http-service-VIP-8080 {
-       #hash $remote_addr consistent;
-       server PRD-CRDB-SRV1.EXAMPLE.COM:8080;
-       server PRD-CRDB-SRV2.EXAMPLE.COM:8080;
-       server PRD-CRDB-SRV3.EXAMPLE.COM:8080;
-       server PRD-CRDB-SRV4.EXAMPLE.COM:8080;
-       server PRD-CRDB-SRV5.EXAMPLE.COM:8080;
-       server PRD-CRDB-SRV6.EXAMPLE.COM:8080;
-     }
-   server {
-        listen 10.10.100.10:8080;
-        proxy_pass http-service-VIP-8080;
-        proxy_bind 10.10.100.10;
+upstream backend {
+ server 192.168.100.10:80 weight=1;
+ server 192.168.100.11:80 weight=2;
+}
+
+server {
+ listen 80 default_server;
+ listen [::]:80 default_server;
+ server_name _;
+ return 301 https://$host$request_uri;
+}
+server {
+        listen 443 ssl;
+        server_name 192.168.150.100;
         access_log /var/log/nginx/access.log basic;
-        error_log /var/log/nginx/error.log debug;
-     }
+
+        location / {
+                proxy_pass http://backend;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+
+        }
+}
