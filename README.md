@@ -1,4 +1,22 @@
 # NGINX-Layer4-Load-Balancing
+### Install the latest verion of Nginx on Ubuntu 18.04
+```
+sudo wget https://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+sudo vi /etc/apt/sources.list
+  deb https://nginx.org/packages/mainline/ubuntu/ bionic nginx
+  deb-src https://nginx.org/packages/mainline/ubuntu/ bionic nginx
+sudo apt-get remove nginx-common
+sudo apt-get update
+sudo apt-get install nginx
+
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+```
+<br />
+<br />
 ### Below is overview on Folder Structure for NGINX for the important folders that we used
 ##### but there are other defaul folders we did not mention them below
 <br />/etc/nginx/<br />
@@ -24,11 +42,8 @@
  <br />
   ```touch /etc/nginx/conf.d/DNS-Service-VIP.stream```
  <br />
-2- Link this new file to the enabled folder<br />
  <br />
-  ```sudo ln -s /etc/nginx/conf.d/DNS-Service-VIP.stream /etc/nginx/sites-enabled/DNS-Service-VIP.stream```
- <br />
-3- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
+2- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
  <br />
  ```
   upstream DNS-Service {
@@ -49,8 +64,8 @@
      }
  ```
   <br />
- 4- Now save the file<br />
- 5- Test the config <br />
+ 3- Now save the file<br />
+ 4- Test the config <br />
   sudo nginx -t <br />
- 6- Restart NGINX<br />
+ 5- Restart NGINX<br />
   sudo systemctl restart nginx 
