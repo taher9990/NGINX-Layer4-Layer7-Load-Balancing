@@ -68,6 +68,8 @@ sudo systemctl status nginx
 
 <br />
 #### Nginx verion used is 
+<br />
+
 ```
 root@test-f5-tutorial-2:/etc/nginx# nginx -v
 nginx version: nginx/1.19.0
