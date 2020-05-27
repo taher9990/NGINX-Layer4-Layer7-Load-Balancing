@@ -51,6 +51,6 @@
   <br />
  4- Now save the file<br />
  5- Test the config <br />
-    ```sudo nginx -t```
+  <br />  ```sudo nginx -t```
  6- Restart NGINX<br />
-    ```sudo systemctl restart nginx```
+ <br />   ```sudo systemctl restart nginx```
