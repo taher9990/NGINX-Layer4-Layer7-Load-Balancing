@@ -26,7 +26,7 @@
  <br />
 2- Link this new file to the enabled folder<br />
  <br />
-  ```sudo ln -s /etc/nginx/conf.d/DNS-Service-VIP.stream /etc/nginx/sites-enabled/DNS-Service-VIP.stream<br />```
+  ```sudo ln -s /etc/nginx/conf.d/DNS-Service-VIP.stream /etc/nginx/sites-enabled/DNS-Service-VIP.stream```
  <br />
 3- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
  <br />
