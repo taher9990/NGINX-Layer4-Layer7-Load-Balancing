@@ -21,10 +21,16 @@
  <br />
 #### So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP <br />
 1- Create a new file under /etc/nginx/conf.d/<VIP-Name>.stream<br />
+ <br />
   touch /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
+ <br />
 2- Link this new file to the enabled folder<br />
+ <br />
   sudo ln -s /etc/nginx/conf.d/DNS-Service-VIP.stream /etc/nginx/sites-enabled/DNS-Service-VIP.stream<br />
+ <br />
 3- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
+ <br />
+ ```
   upstream DNS-Service {<br />
        hash $remote_addr consistent;  # This is going to remeber client IP and send him to same DNS server that we served first<br />
        server DNS-SRV1.EXAMPLE.COM:53;<br />
@@ -41,6 +47,7 @@
         access_log /var/log/nginx/access.log basic;<br />
         error_log /var/log/nginx/error.log debug;<br />
      }<br />
+ ```
   <br />
  4- Now save the file<br />
  5- Test the config <br />
