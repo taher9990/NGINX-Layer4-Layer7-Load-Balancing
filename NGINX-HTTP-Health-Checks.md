@@ -23,7 +23,7 @@ http {
     #... 
 }  
 ```
-### 2# Customize HTTP Status Code Health check 
+### 2# Customize HTTP Status Code Health check with Range of Codes 
  ```   
   health_check match=server_ok; 
  ```
@@ -38,6 +38,7 @@ http {
         status 200-399;
         body !~ "maintenance mode";
     }
+  }
  ```
 ###### In /conf.d/*.http file mention the 
   health_check match=server_ok; 
@@ -52,7 +53,70 @@ http {
     }
 ```
 
- ### 3# Customized Timeout & Customized Port to do health check on it
+### 3# Customize HTTP Status Code Health check & Other headers
+ ```   
+  health_check match=welcome; 
+ ```
+##### Explaination
+health_check match=welcome : You can set custom conditions that the response must satisfy for the server to pass the health check. The conditions are defined in a match block, which is referenced in the match parameter of the health_check directive.
+##### Usage
+###### In the HTTP Block insert below lines
+```
+http {
+    #...
+  match welcome {
+    status 200;
+    header Content-Type = text/html;
+    body ~ "Welcome to nginx!";
+}
+}
+ ```
+###### In /conf.d/*.http file mention the 
+  health_check match=server_ok; 
+
+```    
+   server {
+        #...
+        location / {
+            proxy_pass http://backend;
+            health_check match=welcome;
+        }
+    }
+```
+
+### 4# Health check for Status code must not be redirection or Refresh
+ ```   
+  health_check match=not_redirect; 
+ ```
+##### Explaination
+health_check match=not_redirect : You can set custom conditions that the response must satisfy for the server to pass the health check. The conditions are defined in a match block, which is referenced in the match parameter of the health_check directive.
+##### Usage
+###### In the HTTP Block insert below lines
+```
+http {
+    #...
+      match not_redirect {
+    status ! 301-303 307;
+    header ! Refresh;
+    }
+}
+ ```
+###### In /conf.d/*.http file mention the 
+  health_check match=server_ok; 
+
+```    
+   server {
+        #...
+        location / {
+            proxy_pass http://backend;
+            health_check match=not_redirect;
+        }
+    }
+```
+
+
+
+ ### 5# Customized Timeout & Customized Port to do health check on it
  ```   
  health_check;
    health_check port=12346
@@ -94,7 +158,7 @@ http {
 }  
 ```
 
-### 4#  Setting the prefered upstream/backend, Setting Max failuers and Setting Max active connections
+### 6#  Setting the prefered upstream/backend, Setting Max failuers and Setting Max active connections
  ```        
 weight=5;
 max_fails=2 fail_timeout=30s; 
@@ -114,7 +178,7 @@ upstream stream_backend {
 }  
 ```
 
-### 5# Setting Active and Passive, Setting How to recover from failed server gradually
+### 7# Setting Active and Passive, Setting How to recover from failed server gradually
  ```   
 slow_start=30s;  
 backup; 
