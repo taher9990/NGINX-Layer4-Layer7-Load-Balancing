@@ -45,10 +45,10 @@ max_fails=2 fail_timeout=30s;
 max_conns=3;  
  ```
  ##### Explaination
-weight=5 : the higher the weight value the most preferred <br />
-fail_timeout=30s : Sets the time during which a number of failed attempts must happen for the server to be marked unavailable, and also the time for which the server is marked unavailable (default is 10 seconds). <br />
-max_fails=2 fail_timeout=30s : Sets the number of failed attempts that must occur during the fail_timeout period for the server to be marked unavailable (default is 1 attempt). <br />
-max_conns=3; 
+weight=5 : the higher the weight value the most preferred <br /><br />
+fail_timeout=30s : Sets the time during which a number of failed attempts must happen for the server to be marked unavailable, and also the time for which the server is marked unavailable (default is 10 seconds). <br /><br />
+max_fails=2 fail_timeout=30s : Sets the number of failed attempts that must occur during the fail_timeout period for the server to be marked unavailable (default is 1 attempt). <br /><br />
+max_conns=3 : limits the maximum number of simultaneous active connections to the proxied server, Default value is zero.
 ##### Usage
 ```
 upstream stream_backend {  
