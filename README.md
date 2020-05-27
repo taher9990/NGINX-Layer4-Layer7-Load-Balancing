@@ -65,6 +65,10 @@ sudo systemctl status nginx
  5- Restart NGINX<br />
   sudo systemctl restart nginx 
 
+
+To check the logs
+tail -f /var/log/nginx/error.log
+tail -f /var/log/nginx/access.log
 <br />
 <br />
 <br />
