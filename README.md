@@ -18,8 +18,8 @@ sudo systemctl status nginx
 ```
 ### Below is overview on Folder Structure for NGINX for the important folders that we used
 ##### but there are other defaul folders we did not mention them below
-
-<br />/etc/nginx/<br />
+```
+/etc/nginx/
 ├── conf.d<br />
 │   ├── mail-service-VIP.mail<br />
 │   ├── http-service-VIP.http<br />
@@ -27,19 +27,13 @@ sudo systemctl status nginx
 │   └── DB-TCP-L4-VIP.stream<br />
 ├── nginx.conf<br />
 └──
+```
 
-
- <br />
- <br />
- <br />
 #### So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP <br />
-1- Create a new file under /etc/nginx/conf.d/<VIP-Name>.stream<br />
- <br />
-  
+1- Create a new file under /etc/nginx/conf.d/<VIP-Name>.stream
+  ```
   touch /etc/nginx/conf.d/DNS-Service-VIP.stream
-  
- <br />
- <br />
+  ```
 2- Configure the new VIP add below text to /etc/nginx/conf.d/DNS-Service-VIP.stream<br />
 
   upstream DNS-Service {
