@@ -7,6 +7,8 @@
 ##### You can create a temporary redirect in Nginx by adding a line like this to the server block entry in the server configuration file:
 ```
 rewrite ^/oldlocation$ http://www.newdomain.com/newlocation redirect;
+```
+```
 Similarly, use a line like this for a permanent redirect:
 
 rewrite ^/oldlocation$ http://www.newdomain.com/newlocation permanent;
