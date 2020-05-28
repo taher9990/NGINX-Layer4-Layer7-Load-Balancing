@@ -1,5 +1,5 @@
 
-### 1# Redirect to another domain
+### 1# Redirect to another domain & Permenant Redirect to new URL
 ```
 server {
   server_name .mydomain.com;
@@ -13,8 +13,27 @@ server {
   return 301 http://www.adifferentdomain.com$request_uri;
 }
 ```
+Or
+```
+server {
+# Permanent redirect to new URL
+server_name olddomain.com;
+rewrite ^/(.*)$ http://newdomain.com/$1 permanent;
+}
+```
 
-### 2# Rewrite missing http://
+### 2# Redirect HTTP to HTTPS
+```
+server {
+# Redirect to HTTPS
+listen      80;
+server_name domain.com www.domain.com;
+return      301 https://example.com$request_uri;
+}
+```
+
+
+### 3# Rewrite missing http://
 
 ```
 server {
@@ -23,7 +42,7 @@ rewrite ^ http://example.com permanent;
 }
 ```
 
-### 3# Return statement position is at topmost context e.g. below
+### 4# Return statement position is at topmost context e.g. below
 
 ```
 server {
@@ -38,7 +57,7 @@ server {
 ```
 
 
-### 4# Permanent www to non-www Redirect
+### 5# Permanent www to non-www Redirect
 ```
 server {
 server_name www.domain.com;
@@ -46,7 +65,7 @@ rewrite ^/(.*)$ http://domain.com/$1 permanent;
 }
 ```
 
-### 5# Permanent Redirect to www
+### 6# Permanent Redirect to www
 ```
 server {
 server_name domain.com;
