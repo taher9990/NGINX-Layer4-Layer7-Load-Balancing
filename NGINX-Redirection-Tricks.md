@@ -105,6 +105,8 @@ server {
       proxy_redirect http://example.com:8787/ $scheme://$host:8080/;
     }
 ```
+##### Note: $scheme is request scheme, “http” or “https”
+
 ### 9# Proxy Everything
 ```
     server_name _;
