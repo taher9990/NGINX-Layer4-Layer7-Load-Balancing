@@ -94,7 +94,18 @@ server {
     rewrite ^/services.html$ /offer.html permanent;
    }
 ```
-### 8# Proxy Everything
+
+### 8# Redirect to different Port
+```
+  server {
+    listen 8080;
+
+    location / {
+      proxy_pass http://example.com:8787;
+      proxy_redirect http://example.com:8787/ $scheme://$host:8080/;
+    }
+```
+### 9# Proxy Everything
 ```
     server_name _;
     root /var/www/site;
