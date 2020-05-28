@@ -60,6 +60,10 @@ sudo systemctl status nginx
   sudo nginx -t
   ```
  5- Restart NGINX
+  Seamless restart
+  ```
+  systemctl reload nginx
+  ```
   ```
   sudo systemctl restart nginx 
   ```
