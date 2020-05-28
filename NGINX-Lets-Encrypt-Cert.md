@@ -27,3 +27,13 @@ systemctl reload nginx
 ```
 nginx -T
 ```
+
+##### Let’s Encrypt certificates are only valid for 90 days from issuance, so we want to ensure that they are automatically renewed. Edit the cron file for the root user by running:
+```
+crontab -e
+```
+The cron should look like this:
+```
+45 2 * * 3,6 certbot renew && systemctl reload nginx
+```
+###### Once you save this file, every Wednesday and Saturday at 2:45 AM, the certbot command will check for any needed renewals, automatically download and install the certs, followed by a reload of the Nginx configuration.
