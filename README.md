@@ -68,7 +68,7 @@ To check the logs
 tail -f /var/log/nginx/error.log
 tail -f /var/log/nginx/access.log
 ```
-#### Nginx verion used is 
+#### Nginx version used in this example
 ```
 root@test-f5-tutorial-2:/etc/nginx# nginx -v
 nginx version: nginx/1.19.0
