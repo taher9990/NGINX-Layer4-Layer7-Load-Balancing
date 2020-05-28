@@ -20,12 +20,12 @@ sudo systemctl status nginx
 ##### but there are other defaul folders we did not mention them below
 ```
 /etc/nginx/
-├── conf.d<br />
-│   ├── mail-service-VIP.mail<br />
-│   ├── http-service-VIP.http<br />
-│   ├── WEB-TCP-L4-VIP.stream<br />
-│   └── DB-TCP-L4-VIP.stream<br />
-├── nginx.conf<br />
+├── conf.d
+│   ├── mail-service-VIP.mail
+│   ├── http-service-VIP.http
+│   ├── WEB-TCP-L4-VIP.stream
+│   └── DB-TCP-L4-VIP.stream
+├── nginx.conf
 └──
 ```
 
