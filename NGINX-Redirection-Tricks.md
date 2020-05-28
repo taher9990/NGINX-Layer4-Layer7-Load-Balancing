@@ -86,7 +86,13 @@ server_name domain.com;
 rewrite ^/(.*)$ http://www.newdomain.com/$1 permanent;
 }
 ```
-### 7# Proxy Everything
+### 7# You can also combine multiple domain names in the server parameter
+```
+server {
+  server_name example.com www.example.com;
+   }
+```
+### 8# Proxy Everything
 
 ```
     server_name _;
