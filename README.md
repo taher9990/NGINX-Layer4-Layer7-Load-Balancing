@@ -1,4 +1,4 @@
-# NGINX-Layer4-Load-Balancing
+# NGINX-Layer4 & Layer7 "HTTP" -Load-Balancing
 ### Install the latest verion of Nginx on Ubuntu 18.04
 
 ```
