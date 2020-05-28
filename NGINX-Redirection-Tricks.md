@@ -36,7 +36,24 @@ server {
     }
 }
 ```
-### 4# Proxy Everything
+
+
+### 4# Permanent www to non-www Redirect
+```
+server {
+server_name www.domain.com;
+rewrite ^/(.*)$ http://domain.com/$1 permanent;
+}
+```
+
+### 5# Permanent Redirect to www
+```
+server {
+server_name domain.com;
+rewrite ^/(.*)$ http://www.newdomain.com/$1 permanent;
+}
+```
+### 7# Proxy Everything
 
 ```
     server_name _;
