@@ -1,3 +1,16 @@
+### Let us first defind the redirection types 
+#### Temporary redirects
+######  (response status code 302 Found) are useful if a URL temporarily needs to be served from a different location. For example, if you are performing site maintenance, you may wish to use a temporary redirect of from your domain to an explanation page to inform your visitors that you will be back shortly.
+#### Permanent redirects
+######  (response status code 301 Moved Permanently), on the other hand, inform the browser that it should forget the old address completely and not attempt to access it anymore. These are useful when your content has been permanently moved to a new location, like when you change domain names.
+
+##### You can create a temporary redirect in Nginx by adding a line like this to the server block entry in the server configuration file:
+```
+rewrite ^/oldlocation$ http://www.newdomain.com/newlocation redirect;
+Similarly, use a line like this for a permanent redirect:
+
+rewrite ^/oldlocation$ http://www.newdomain.com/newlocation permanent;
+```
 
 ### 1# Redirect to another domain & Permenant Redirect to new URL
 ```
