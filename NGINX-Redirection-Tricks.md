@@ -90,10 +90,11 @@ rewrite ^/(.*)$ http://www.newdomain.com/$1 permanent;
 ```
 server {
   server_name example.com www.example.com;
+    rewrite ^/products.html$ /offer.html permanent;
+    rewrite ^/services.html$ /offer.html permanent;
    }
 ```
 ### 8# Proxy Everything
-
 ```
     server_name _;
     root /var/www/site;
