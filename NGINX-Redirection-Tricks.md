@@ -8,9 +8,8 @@
 ```
 rewrite ^/oldlocation$ http://www.newdomain.com/newlocation redirect;
 ```
-```
 Similarly, use a line like this for a permanent redirect:
-
+```
 rewrite ^/oldlocation$ http://www.newdomain.com/newlocation permanent;
 ```
 
