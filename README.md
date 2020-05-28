@@ -25,8 +25,8 @@ sudo systemctl status nginx
 │   ├── http-service-VIP.http
 │   ├── WEB-TCP-L4-VIP.stream
 │   └── DB-TCP-L4-VIP.stream
-├── nginx.conf
-└──
+└── nginx.conf
+
 ```
 
 #### So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP <br />
