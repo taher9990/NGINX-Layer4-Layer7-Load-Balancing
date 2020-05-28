@@ -29,6 +29,7 @@ sudo systemctl status nginx
 
 ```
 
+# Steps to Create new VIP
 #### So you need to  follow below steps to create new VIP e.g. TCP/UDP VIP <br />
 1- Create a new file under /etc/nginx/conf.d/<VIP-Name>.stream
   ```
